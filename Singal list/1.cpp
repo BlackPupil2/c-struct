@@ -2,7 +2,7 @@
 #include "list.h"
 #include <stdlib.h>
 //单链表创建
-
+//单链表
 int main( ){
     struct node *p=(struct node *)malloc(1*sizeof(struct node));
     struct node listA;
