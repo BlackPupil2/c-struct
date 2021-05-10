@@ -4,16 +4,23 @@
 typedef struct node{
     int data;
     struct node * next;
-};
+}Node,*Linklist;
+//初始化单链表
+
+
+
 //创建单链表
 struct node Createlist(int n){
     struct node List;
     int t1=n%10;
-    struct node *p=(struct node *)malloc(1*sizeof(struct node));
+    // struct node *p=(struct node *)malloc(1*sizeof(struct node));
+   // Node *p=(Node*)malloc(1*sizeof(Node));
+   Node *p=new Node;
     if(!p){
         printf("error");
     }
-    struct node *q=(struct node *)malloc(1*sizeof(struct node));
+    //struct node *q=(struct node *)malloc(1*sizeof(struct node));
+    Node *q=new Node;
     List.next=p;
     p->data=t1;
     p->next=q;
@@ -21,19 +28,22 @@ struct node Createlist(int n){
     int t=n/10;
     while(t!=0){
             p->data=t%10;
-            struct node *q=(struct node *)malloc(1*sizeof(struct node));
+          //  struct node *q=(struct node *)malloc(1*sizeof(struct node));
+          Node *q=new Node;
             p->next=q;
             p=q;
             t=t/10;
         }
        p->next=NULL;
+       //返回头结点
         return List;
 
 }
 //求单链表长度
 int list_size(struct node List){
     int num=0;
-    struct node *p=(struct node *)malloc(1*sizeof(struct node));
+    //struct node *p=(struct node *)malloc(1*sizeof(struct node));
+    Node *p=new Node;
     p=List.next;
     while((p->next)){
         num=num+1;
@@ -43,7 +53,8 @@ int list_size(struct node List){
 }
 //打印单链表
 void list_print(struct node List){
-    struct node *header=(struct node *)malloc(1*sizeof(struct node));
+    //struct node *header=(struct node *)malloc(1*sizeof(struct node));
+    Node *header=new Node;
     header=List.next;
     int sum=0;
     for(int i=0;i<list_size(List);i++){
@@ -57,8 +68,10 @@ void list_print(struct node List){
 }
 //求和
 struct node listSum(struct node ListA, struct node ListB){
-    struct node *p=(struct node *)malloc(1*sizeof(struct node));
-    struct node *q=(struct node *)malloc(1*sizeof(struct node));
+    //struct node *p=(struct node *)malloc(1*sizeof(struct node));
+    //struct node *q=(struct node *)malloc(1*sizeof(struct node));
+    Node *p=new Node;
+    Node *q=new Node;
     p=ListA.next;
     q=ListB.next;
     int t;
